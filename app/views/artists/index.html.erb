@@ -1,1 +1,6 @@
-index.html.erb
+<% @artists.each do |artist| %>
+<% if (params[:city] == artist.city) %>
+<%= artist.city %>
+<%= link_to artist.name, artist_path(artist) %>
+<% end %>
+<% end %>
