@@ -1,7 +1,10 @@
-
- <h3 class="text-center">Book an appointment</h3>
- <%= simple_form_for [@artist, @booking] do |f| %>
- <%= f.input :start_time %>
- <%= f.input :end_time %>
- <%= f.submit "book" %>
- <% end %>
+<div class="row">
+  <div class="col-lg-4 col-lg-offset-4">
+   <h3 class="text-center">Book an appointment</h3>
+   <%= simple_form_for [@artist, @booking] do |f| %>
+   <%= f.input :start_time %>
+   <%= f.input :end_time %>
+   <%= f.submit "book" %>
+   <% end %>
+ </div>
+</div>

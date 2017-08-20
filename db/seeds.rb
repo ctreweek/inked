@@ -1,3 +1,7 @@
+Booking.destroy_all
+User.destroy_all
+Artist.destroy_all
+
 puts "creating seeds.."
 
 @cities = ["Gainesville", "Ocala", "Tampa", "Miami"]

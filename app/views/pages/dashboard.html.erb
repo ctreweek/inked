@@ -1,1 +1,15 @@
-dashboard.html.erb
+
+    <div class="text-center">
+      <% if current_user.bookings.count > 0 %>
+       <h3>Your upcoming appointments:</h3>
+       <% current_user.bookings.each do |booking| %>
+        <%= booking.artist.name %>
+        <%= booking.start_time %>
+        <% end %>
+
+      <% else %>
+        <h3>You don't have any upcoming appointments</h3>
+        <%= link_to "Browse work", root_path %>
+      <% end %>
+    </div>
+

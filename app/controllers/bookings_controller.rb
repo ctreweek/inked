@@ -5,7 +5,7 @@ class BookingsController < ApplicationController
   end
 
   def create
-    @booking = Booking.new
+    @booking = Booking.new(booking_params)
     @artist = Artist.find(params[:artist_id])
     @booking.artist = @artist
     @booking.user = current_user
@@ -15,5 +15,11 @@ class BookingsController < ApplicationController
     else
       render:new
     end
+  end
+
+  private
+
+  def booking_params
+    params.require(:booking).permit(:start_time, :end_time)
   end
 end
