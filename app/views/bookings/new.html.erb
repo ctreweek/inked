@@ -1,0 +1,7 @@
+
+ <h3 class="text-center">Book an appointment</h3>
+ <%= simple_form_for [@artist, @booking] do |f| %>
+ <%= f.input :start_time %>
+ <%= f.input :end_time %>
+ <%= f.submit "book" %>
+ <% end %>
