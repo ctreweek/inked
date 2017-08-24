@@ -1,1 +1,43 @@
-<h3>you're an artist!</h3>
+<div class="container">
+  <div class="row">
+    <div class="col-lg-offset-4 col-lg-4">
+      <h3>Welcome, <%= current_artist.name %>!</h3>
+
+      <p>Your upcoming appointments:</p>
+      <% current_artist.bookings.each do |booking| %>
+      <table>
+        <tr>
+          <td>booking.start_time</td>
+        </tr>
+      </table>
+      <% end %>
+
+      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal1">Upload photos of your work</button>
+
+      <div class="modal fade" id="modal1" tabindex="-1" role="dialog" aria-labelledby="ModalLongTitle" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="ModalLongTitle">Upload photos to your profile</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+             <div class="row text-center">
+              <h3 class="text-center">Upload Photos</h3>
+              <%= simple_form_for current_artist do |f| %>
+              <%= f.input :photos, as: :attachinary %>
+              <%= f.button :submit, "Upload" %>
+              <% end %>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+
+<% current_artist.photos.each do |photo| %>
+  <%= cl_image_tag(photo.path, { size: '125x125', crop: :fit }) %>
+<% end %>

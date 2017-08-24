@@ -1,12 +1,18 @@
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal">
+<div class="container">
+  <h3><%= @artist.name %></h3>
+  <p><%= @artist.city %></p>
+  <p><%= @artist.info %></p>
+  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal">
     Book an appointment
   </button>
+</div>
 
-<div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+
+<div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="ModalLongTitle" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-      <h5 class="modal-title" id="exampleModalLongTitle">Book an appointment with <%=@artist.name%></h5>
+        <h5 class="modal-title" id="ModalLongTitle">Book an appointment with <%=@artist.name%></h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -14,16 +20,16 @@
       <div class="modal-body">
        <div class="row text-center">
 
-          <h3 class="text-center">Book your appointment</h3>
-          <%= simple_form_for [@artist, @booking] do |f| %>
-          <%= f.input :start_time %>
-          <%= f.input :end_time %>
-          <%= f.submit "Book" %>
-          <% end %>
-        </div>
+        <h3 class="text-center">Book your appointment</h3>
+        <%= simple_form_for [@artist, @booking] do |f| %>
+        <%= f.input :start_time %>
+        <%= f.input :end_time %>
+        <%= f.submit "Book" %>
+        <% end %>
       </div>
-
     </div>
+
   </div>
+</div>
 </div>
 </div>

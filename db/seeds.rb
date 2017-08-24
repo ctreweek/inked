@@ -1,4 +1,5 @@
 Booking.destroy_all
+Tattoo.destroy_all
 User.destroy_all
 Artist.destroy_all
 
@@ -23,5 +24,12 @@ end
     })
   user.save!
 end
+
+
+tattoo = Tattoo.new({
+  url: "https://68.media.tumblr.com/1edcf2d3cb3eb781032764138bb443a1/tumblr_ov59uamA3O1u80dlxo1_1280.jpg",
+  artist_id: Artist.first.id
+  })
+tattoo.save!
 
 puts "done!"

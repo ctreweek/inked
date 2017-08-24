@@ -1,6 +1,10 @@
 <% @artists.each do |artist| %>
 <% if (params[:city] == artist.city) %>
 <%= artist.city %>
-<%= link_to artist.name, artist_path(artist) %>
+<% artist.tattoos.each do |tattoo| %>
+<%= image_tag tattoo.url, class: "index-photo"%>
 <% end %>
 <% end %>
+<% end %>
+
+
