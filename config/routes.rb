@@ -9,5 +9,6 @@ Rails.application.routes.draw do
 
   resources :artists, only: [:index, :show, :edit, :update] do
     resources :bookings, only: [:new, :create]
+    resources :tattoos, only: [:new, :create, :show]
   end
 end
