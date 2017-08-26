@@ -50,7 +50,7 @@ end
 
 id = Artist.first.id
 while id < Artist.last.id + 1
-  9.times do
+  12.times do
    tat = Tattoo.create({
     url: "https://unsplash.it/200/300/?random",
     artist_id: id

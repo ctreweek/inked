@@ -1,1 +1,3 @@
-<%= @tattoo.url %>
+<%= link_to artist_path(@tattoo.artist) do %>
+<%= image_tag @tattoo.url, class: "tattoo-show-photo" %>
+<% end %>
