@@ -1,7 +1,13 @@
 class ArtistsController < ApplicationController
   skip_before_action :authenticate_user!
+
   def index
     @artists = Artist.all
+    @cities = []
+    @artists.each do |artist|
+      @cities << artist.city
+    end
+    @cities = @cities.uniq
   end
 
   def show
@@ -20,6 +26,7 @@ class ArtistsController < ApplicationController
         redirect_to pages_dashboard_path
     end
   end
+
 
 
   private

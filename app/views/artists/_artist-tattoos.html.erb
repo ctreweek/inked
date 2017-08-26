@@ -1,7 +1,11 @@
+<div class="container-artist-index">
+<div class="row artist-index-photos no-gutters">
 <% artist.tattoos.each do |tattoo| %>
-  <div class="col-lg-4">
+  <div class="col-lg-3">
     <%= link_to artist_tattoo_path(tattoo.artist, tattoo) do %>
       <%= image_tag tattoo.url, class: "index-photo" %>
     <% end %>
   </div>
 <% end %>
+</div>
+</div>
