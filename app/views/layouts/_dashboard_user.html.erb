@@ -1,11 +1,26 @@
-<h1>Welcome <%= current_user.email %></h1>
+<div class="text-center">
+<h1>Welcome, <%= current_user.email %></h1>
 <% if current_user && current_user.bookings.count > 0 %>
   <h3>Your upcoming appointments:</h3>
   <% current_user.bookings.each do |booking| %>
-    <%= booking.artist.name %>
-    <%= booking.start_time %>
+    <div class="appointment-card" style= "background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('https://www.tattoodo.com/images/0/20728.jpg');">
+      <div class="appointment-date">
+      <h3>
+      <%= booking.start_time.strftime("%A") %>,
+      <%= booking.start_time.strftime("%B") %> <%= booking.start_time.strftime("%d") %>
+      </h3>
+      </div>
+      <div class="appointment-time">
+        <%= booking.start_time.strftime("%H") %>:<%= booking.start_time.strftime("%M") %> -
+        <%= booking.end_time.strftime("%H") %>:<%= booking.end_time.strftime("%M") %>
+      </div>
+      <div class="appointment-artist"><%= link_to booking.artist.name, artist_path(booking.artist) %></div>
+      <div class="appointment-avatar"><%= image_tag booking.artist.avatar, class: "artist-avatar-small" %></div>
+    </div>
   <% end %>
 <% elsif current_user && current_user.bookings.count == 0 %>
 <h3>You don't have any upcoming appointments</h3>
 <%= link_to "Browse work", root_path %>
 <% end %>
+</div>
+

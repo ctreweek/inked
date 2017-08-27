@@ -1,0 +1,39 @@
+.appointment-card {
+  height: 210px;
+  width: 400px;
+  color: white;
+  border-radius: 4px;
+  margin: 0 auto;
+  position: relative;
+  background-image: url("card-image.jpg"), linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%);
+  background-position: center;
+  margin-top: 48px;
+
+  a {
+    color: white;
+  }
+}
+
+.appointment-avatar {
+  position: absolute;
+  right: 5px;
+  top: 5px;
+}
+
+.appointment-date {
+  position: absolute;
+  left: 6px;
+  bottom: 65px;
+}
+
+.appointment-time {
+  position: absolute;
+  bottom: 50px;
+  left: 6px;
+}
+
+.appointment-artist {
+  position: absolute;
+  top: 5px;
+  left: 5px;
+}
