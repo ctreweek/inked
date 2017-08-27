@@ -1,9 +1,11 @@
 <div class="search-artist-index text-center">
-<%= form_tag "/artists", method: "get" do |f| %>
-<%= select_tag "city", options_for_select(@cities), prompt: "Choose a city" %>
-<%= submit_tag "Discover Art", class: 'btn-landing ' %>
-<% end %>
-<p>Showing results for artwork in <%= params[:city] %></p>
+  <%= form_tag "/artists", method: "get" do |f| %>
+  <%= select_tag "city", options_for_select(@cities), prompt: "Choose a city" %>
+  <%= submit_tag "Discover Art", class: 'btn-primary ' %>
+  <% end %>
+  <% if (params[:city] != "Choose a city")  %>
+    <p>Showing results for artwork in <%= params[:city] %></p>
+  <% end %>
 </div>
 
 <% @artists.each do |artist| %>

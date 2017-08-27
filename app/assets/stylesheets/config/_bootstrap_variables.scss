@@ -3,6 +3,14 @@
 // 2. These variables are defined with default value (see https://robots.thoughtbot.com/sass-default)
 // 3. You can override them below!
 
+@import url('https://fonts.googleapis.com/css?family=Nunito+Sans:300,400');
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:400,300,700|Bree+Serif");
+
+
+$base-font: "Open Sans", "Helvetica", "sans-serif";
+$header-font: "Nunito Sans", "Helvetica", "sans-serif";
+
+
 // General style
 $font-family-sans-serif:  $body-font;
 $headings-font-family:    $headers-font;
@@ -11,7 +19,7 @@ $font-size-base: 18px;
 
 // Colors
 $gray-base:       $gray;
-$brand-primary:   $blue;
+$brand-primary:   #7E57C2;
 $brand-success:   $green;
 $brand-info:      $yellow;
 $brand-danger:    $red;

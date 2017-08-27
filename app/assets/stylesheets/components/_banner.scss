@@ -9,12 +9,23 @@
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  // font-family: $base-font;
+  font-family: $header-font;
+  font-weight: lighter;
+
+
 
   h1 {
     font-size: 50px;
-    margin-bottom: 16px;
+    margin-bottom: -7px;
     letter-spacing: 3px;
+    font-family: $header-font;
+
+  }
+
+  h3 {
+    font-family: $header-font;
+    font-weight: lighter;
+    margin-bottom: 79px;
   }
 
   a {
@@ -28,4 +39,5 @@
 
 .call-to-action-user {
   margin-bottom: 15px;
+  margin-top: 15px;
 }
