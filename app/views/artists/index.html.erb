@@ -7,7 +7,10 @@
 </div>
 
 <% @artists.each do |artist| %>
-<% if (params[:city] == artist.city) %>
+<% if (params[:city] == artist.city) || (params[:city] == "Choose a city") %>
   <%= render 'artist-tattoos', artist: artist %>
 <% end %>
 <% end %>
+
+
+

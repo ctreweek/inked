@@ -11,7 +11,8 @@ puts "creating seeds.."
     city: "Gainesville",
     info: "I've been tattooing for 5 years. Specialize in watercolor and geometric.",
     email: Faker::Internet.email,
-    password: "1234567890"
+    password: "1234567890",
+    avatar: "https://unsplash.it/200/300/?random"
     })
   artist.save!
 end
@@ -22,7 +23,9 @@ end
     city: "Orlando",
     info: "I've been tattooing for 5 years. Specialize in watercolor and geometric.",
     email: Faker::Internet.email,
-    password: "1234567890"
+    password: "1234567890",
+    avatar: "https://unsplash.it/200/300/?random"
+
     })
   artist.save!
 end
@@ -33,7 +36,9 @@ end
     city: "Miami",
     info: "I've been tattooing for 5 years. Specialize in watercolor and geometric.",
     email: Faker::Internet.email,
-    password: "1234567890"
+    password: "1234567890",
+    avatar: "https://unsplash.it/200/300/?random"
+
     })
   artist.save!
 end

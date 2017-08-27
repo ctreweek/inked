@@ -1,4 +1,23 @@
 .tattoo-show-photo {
   width: 400px;
   height: 400px;
+  position: absolute;
+  top: 155px;
+  left: 313px;
+}
+
+.container-postion-relative {
+  position: relative;
+}
+
+.tat-show-artist-info {
+  display: flex;
+  position: relative;
+  left: 909px;
+  top: 152px;
+}
+
+.artist-name {
+  margin-left: 32px;
+  margin-top: 26px;
 }

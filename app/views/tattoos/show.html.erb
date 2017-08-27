@@ -1,3 +1,18 @@
-<%= link_to artist_path(@tattoo.artist) do %>
-<%= image_tag @tattoo.url, class: "tattoo-show-photo" %>
-<% end %>
+
+<div class="container-postion-relative">
+  <div>
+    <%= link_to artist_path(@tattoo.artist) do %>
+      <%= image_tag @tattoo.url, class: "tattoo-show-photo" %>
+    <% end %>
+  </div>
+  <div class="tat-show-artist-info">
+    <div>
+      <%= link_to artist_path(@tattoo.artist) do  %>
+      <%= image_tag @tattoo.artist.avatar, class: "artist-avatar-small"%>
+      <% end %>
+    </div>
+    <div class="artist-name">
+      <%= link_to @tattoo.artist.name, artist_path(@tattoo.artist) %>
+    </div>
+  </div>
+</div>

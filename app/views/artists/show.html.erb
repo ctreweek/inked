@@ -1,10 +1,15 @@
-<div class="container">
-  <h3><%= @artist.name %></h3>
-  <p><%= @artist.city %></p>
-  <p><%= @artist.info %></p>
+<div class="container-profile-info">
+  <div class="profile-pic">
+    <%= image_tag @artist.avatar, class: "artist-avatar" %>
+  </div>
+  <div>
+    <h3><%= @artist.name %></h3>
+    <p><%= @artist.city %></p>
+    <p><%= @artist.info %></p>
   <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal">
     Book an appointment
   </button>
+  </div>
 </div>
 
 
@@ -34,15 +39,15 @@
 </div>
 </div>
 
-<!-- <div class="container-pos-relative"> -->
-      <% @artist.tattoos.each do |tattoo| %>
-  <div class="row">
-    <div class="col-lg-4">
-        <%= image_tag tattoo.url, class: "index-photo" %>
-    </div>
-      <% end %>
+<div class="container-artist-show">
+<div class="row artist-show-photos no-gutters">
+<% @artist.tattoos.each do |tattoo| %>
+  <div class="col-lg-4">
+      <%= image_tag tattoo.url, class: "show-photo" %>
   </div>
-<!-- </div> -->
+<% end %>
+</div>
+</div>
 
 
 
