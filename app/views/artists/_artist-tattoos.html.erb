@@ -1,13 +1,17 @@
 <div class="container-artist-index">
-<div class="row artist-index-photos no-gutters">
-<% artist.tattoos.each do |tattoo| %>
-  <div class="col-lg-3">
-    <%= link_to artist_tattoo_path(tattoo.artist, tattoo) do %>
-      <%= image_tag tattoo.url, class: "index-photo" %>
-    <% end %>
+  <div class="row artist-index-photos no-gutters">
+  <% artist.tattoos.each do |tattoo| %>
+    <div class="col-lg-3">
+      <% if tattoo.url? %>
+        <%= link_to artist_tattoo_path(tattoo.artist, tattoo) do %>
+          <%= image_tag tattoo.url, class: "index-photo" %>
+        <% end %>
+      <% elsif tattoo.photo? %>
+        <%= cl_image_tag @tattoo.photo.path, width: 250, height: 250, crop: :fill %>
+      <% end %>
+    </div>
+  <% end %>
   </div>
-<% end %>
-</div>
 </div>
 
 

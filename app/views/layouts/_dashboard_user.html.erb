@@ -1,5 +1,5 @@
 <div class="text-center">
-<h1>Welcome, <%= current_user.email %></h1>
+<h1>Welcome, <%= current_user.name %></h1>
 <% if current_user && current_user.bookings.count > 0 %>
   <h3>Your upcoming appointments:</h3>
   <% current_user.bookings.each do |booking| %>

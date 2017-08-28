@@ -45,6 +45,7 @@ end
 
 4.times do
   user = User.new({
+    name: Faker::Name.first_name,
     email: Faker::Internet.email,
     password: "1234567890"
     })

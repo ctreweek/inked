@@ -3,41 +3,46 @@
     <div class="col-lg-offset-4 col-lg-4">
       <h3>Welcome, <%= current_artist.name %>!</h3>
 
-      <p>Your upcoming appointments:</p>
-      <% current_artist.bookings.each do |booking| %>
-      <table>
-        <tr>
-          <td>booking.start_time</td>
-        </tr>
-      </table>
-      <% end %>
 
-      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal1">Upload photos of your work</button>
+      <%= link_to "Upload photos of your work", new_artist_tattoo_path(current_artist) %>
+</div>
 
-      <div class="modal fade" id="modal1" tabindex="-1" role="dialog" aria-labelledby="ModalLongTitle" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="ModalLongTitle">Upload photos to your profile</h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            <div class="modal-body">
-             <div class="row text-center">
-              <h3 class="text-center">Upload Photos</h3>
-              <%= simple_form_for current_artist do |f| %>
-              <%= f.input :photos, as: :attachinary %>
-              <%= f.button :submit, "Upload" %>
-              <% end %>
-            </div>
-          </div>
-
-        </div>
-      </div>
+<div>
+  <%= week_calendar number_of_weeks: 1, events: current_artist.bookings do |date, bookings| %>
+  <%= date %>
+    <% bookings.each do |booking| %>
+    <div>
+      <%= booking.start_time.strftime("%H:%M") %>-<%=booking.end_time.strftime("%H-%M")  %>
     </div>
+    <% end %>
+  <% end  %>
+  <div class="text-center">
+    <button class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-lg">Monthly  Calendar</button>
+  </div>
+</div>
 
 
-<% current_artist.photos.each do |photo| %>
-  <%= cl_image_tag(photo.path, { size: '125x125', crop: :fit }) %>
-<% end %>
+<div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <%= month_calendar events: current_artist.bookings do |date, bookings| %>
+       <%= date %>
+      <% bookings.each do |booking| %>
+      <div>
+      <%= booking.start_time.strftime("%H:%M")%>-<%= booking.end_time.strftime("%H:%M")%>
+      </div>
+      <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
