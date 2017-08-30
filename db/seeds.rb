@@ -1,4 +1,5 @@
 Booking.destroy_all
+Comment.destroy_all
 Tattoo.destroy_all
 User.destroy_all
 Artist.destroy_all
@@ -172,4 +173,16 @@ while id < Artist.last.id + 1
    tat.save!
 id += 1
 end
+
+@comments = ["Great work!", "Very happy with my tattoo", "Loved my experience!", "Will definitely return"]
+@user_ids = User.all.ids
+@tattoo_ids = Tattoo.all.ids
+20.times do
+comment = Comment.new({
+  comment: @comments.sample,
+  user_id: @user_ids.sample,
+  tattoo_id: @tattoo_ids.sample
+  })
+end
+
 puts "done!"

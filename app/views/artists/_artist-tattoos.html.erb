@@ -5,6 +5,7 @@
       <% if tattoo.url? %>
         <%= link_to artist_tattoo_path(tattoo.artist, tattoo) do %>
           <%= image_tag tattoo.url, class: "index-photo" %>
+           <div id="modal-window" class="modal hide fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"></div>
         <% end %>
       <% elsif tattoo.photo? %>
         <%= cl_image_tag @tattoo.photo.path, width: 250, height: 250, crop: :fill %>
@@ -13,5 +14,6 @@
   <% end %>
   </div>
 </div>
+
 
 

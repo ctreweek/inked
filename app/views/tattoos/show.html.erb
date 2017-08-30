@@ -14,5 +14,25 @@
     <div class="artist-name">
       <%= link_to @tattoo.artist.name, artist_path(@tattoo.artist) %>
     </div>
+      </div>
+
+
+      <div id="comment-box">
+        <i class="fa fa-comment-o fa-2x" aria-hidden="true"></i>
+        <%= simple_form_for [@tattoo.artist, @tattoo, @comment] do |f| %>
+        <%= f.input :comment, inline_label: "", label: false %>
+        <% end %>
+      </div>
+        <% if @tattoo.comments %>
+        <div id="comments">
+        <% @tattoo.comments.each do |comment| %>
+          <ul style="list-style:none">
+            <li><%=comment.comment %></li>
+          </ul>
+        <% end %>
+        </div>
+      <% end %>
+
+
   </div>
 </div>

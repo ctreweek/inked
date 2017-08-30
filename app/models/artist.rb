@@ -7,4 +7,5 @@ class Artist < ApplicationRecord
   has_attachments :photos, maximum: 3
   has_many :bookings
   has_many :tattoos
+  has_many :comments
 end

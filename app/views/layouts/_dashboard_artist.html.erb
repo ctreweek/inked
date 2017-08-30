@@ -11,8 +11,8 @@
   <%= week_calendar number_of_weeks: 1, events: current_artist.bookings do |date, bookings| %>
   <%= date %>
     <% bookings.each do |booking| %>
-    <div>
-      <%= booking.start_time.strftime("%H:%M") %>-<%=booking.end_time.strftime("%H-%M")  %>
+    <div class="cal-event">
+      <%= booking.start_time.strftime("%H:%M") %>-<%=booking.end_time.strftime("%H-%M")  %> (<%= booking.user.name %>)
     </div>
     <% end %>
   <% end  %>
@@ -28,8 +28,8 @@
       <%= month_calendar events: current_artist.bookings do |date, bookings| %>
        <%= date %>
       <% bookings.each do |booking| %>
-      <div>
-      <%= booking.start_time.strftime("%H:%M")%>-<%= booking.end_time.strftime("%H:%M")%>
+      <div class="cal-event">
+      <%= booking.start_time.strftime("%H:%M")%>-<%= booking.end_time.strftime("%H:%M")%> (<%= booking.user.name %>)
       </div>
       <% end %>
       <% end %>

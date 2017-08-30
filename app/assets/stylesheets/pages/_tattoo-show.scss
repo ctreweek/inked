@@ -25,3 +25,21 @@
     color: black;
   }
 }
+
+#comment-box {
+  display: flex;
+  position: absolute;
+  top: 515px;
+  right: 304px;
+}
+
+.fa-comment-o {
+  margin-right: 10px;
+}
+
+#comments{
+  position: absolute;
+  right: 426px;
+  top: 277px;
+}
+
