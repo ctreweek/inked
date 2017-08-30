@@ -20,7 +20,10 @@
       <div id="comment-box">
         <i class="fa fa-comment-o fa-2x" aria-hidden="true"></i>
         <%= simple_form_for [@tattoo.artist, @tattoo, @comment] do |f| %>
+        <%= f.input :rollout_id, :label => false, wrapper_html: {class: "form-inline"} do %>
         <%= f.input :comment, inline_label: "", label: false %>
+        <%= f.button :submit, "submit", class: "btn-primary" %>
+        <% end %>
         <% end %>
       </div>
         <% if @tattoo.comments %>

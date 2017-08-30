@@ -183,6 +183,7 @@ comment = Comment.new({
   user_id: @user_ids.sample,
   tattoo_id: @tattoo_ids.sample
   })
+comment.save!
 end
 
 puts "done!"
