@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170829225401) do
+ActiveRecord::Schema.define(version: 20170831201325) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -72,6 +72,38 @@ ActiveRecord::Schema.define(version: 20170829225401) do
     t.index ["user_id"], name: "index_comments_on_user_id", using: :btree
   end
 
+  create_table "conversations", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer  "artist_id"
+    t.integer  "user_id"
+    t.index ["artist_id"], name: "index_conversations_on_artist_id", using: :btree
+    t.index ["user_id"], name: "index_conversations_on_user_id", using: :btree
+  end
+
+  create_table "messages", force: :cascade do |t|
+    t.text     "body"
+    t.boolean  "read",            default: false
+    t.integer  "conversation_id"
+    t.integer  "user_id"
+    t.integer  "artist_id"
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
+    t.index ["artist_id"], name: "index_messages_on_artist_id", using: :btree
+    t.index ["conversation_id"], name: "index_messages_on_conversation_id", using: :btree
+    t.index ["user_id"], name: "index_messages_on_user_id", using: :btree
+  end
+
+  create_table "reviews", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string   "content"
+    t.integer  "user_id"
+    t.integer  "artist_id"
+    t.index ["artist_id"], name: "index_reviews_on_artist_id", using: :btree
+    t.index ["user_id"], name: "index_reviews_on_user_id", using: :btree
+  end
+
   create_table "tattoos", force: :cascade do |t|
     t.string   "url"
     t.integer  "artist_id"
@@ -103,5 +135,12 @@ ActiveRecord::Schema.define(version: 20170829225401) do
   add_foreign_key "bookings", "users"
   add_foreign_key "comments", "tattoos"
   add_foreign_key "comments", "users"
+  add_foreign_key "conversations", "artists"
+  add_foreign_key "conversations", "users"
+  add_foreign_key "messages", "artists"
+  add_foreign_key "messages", "conversations"
+  add_foreign_key "messages", "users"
+  add_foreign_key "reviews", "artists"
+  add_foreign_key "reviews", "users"
   add_foreign_key "tattoos", "artists"
 end
