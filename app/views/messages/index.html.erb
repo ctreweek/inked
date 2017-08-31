@@ -1,1 +1,5 @@
-test
+<% @messages.each do |message| %>
+  <% if message.body %>
+    <%= message.body %>
+  <% end %>
+<% end %>
