@@ -2,7 +2,7 @@
   <% if current_user && conversation.user.id == current_user.id %>
     <%= link_to conversation.artist.name, conversation_messages_path(conversation) %>
   <% end %>
-  <% if current_artist && current_artist.artist.id == current_artist.id %>
+  <% if current_artist && conversation.artist.id == current_artist.id %>
     <%= link_to conversation.user.name, conversation_messages_path(conversation) %>
   <% end %>
 <% end %>

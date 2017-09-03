@@ -5,6 +5,7 @@ class MessagesController < ApplicationController
 
   def index
     @messages = @conversation.messages
+    @message = @conversation.messages.new
   end
 
   def new
@@ -13,6 +14,14 @@ class MessagesController < ApplicationController
 
   def create
     @message = @conversation.messages.new(message_params)
+    if current_user
+      @message.user_id = current_user.id
+    end
+
+    if current_artist
+      @message.artist_id = current_artist.id
+    end
+
     if @message.save
       redirect_to conversation_messages_path(@conversation)
     end
@@ -21,7 +30,7 @@ class MessagesController < ApplicationController
   private
 
   def message_params
-    params.require(:message).permit(:body, :user_id, :artist_id)
+    params.require(:message).permit(:body, :artist_id, :user_id)
   end
 
 end

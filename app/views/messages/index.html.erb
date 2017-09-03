@@ -1,5 +1,16 @@
-<% @messages.each do |message| %>
-  <% if message.body %>
-    <%= message.body %>
+<div class="text-center">
+  <% @messages.each do |message| %>
+  <ul style="list-style: none">
+    <% if message.artist %>
+      <li><%= message.artist.name %></li>
+    <% end %>
+    <% if message.user %>
+      <li><%= message.user.name %></li>
+    <% end %>
+      <li><%= message.created_at %></li>
+      <li><%= message.body %></li>
+  </ul>
   <% end %>
-<% end %>
+</div>
+
+<%= render partial: "messages/form", locals: { messages: @messages} %>
