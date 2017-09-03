@@ -1,4 +1,6 @@
 Booking.destroy_all
+Review.destroy_all
+Conversation.destroy_all
 Comment.destroy_all
 Tattoo.destroy_all
 User.destroy_all

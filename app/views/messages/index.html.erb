@@ -1,5 +1,6 @@
 <div class="text-center">
   <% @messages.each do |message| %>
+  <div>
   <ul style="list-style: none">
     <% if message.artist %>
       <li><%= message.artist.name %></li>
@@ -7,10 +8,13 @@
     <% if message.user %>
       <li><%= message.user.name %></li>
     <% end %>
-      <li><%= message.created_at %></li>
+      <% if message.created_at %>
+      <li><%= message.created_at.strftime("%M/%d/%Y") %> at <%= message.created_at.strftime("%H:%M") %></li>
+      <% end %>
       <li><%= message.body %></li>
   </ul>
   <% end %>
+  </div>
 </div>
 
 <%= render partial: "messages/form", locals: { messages: @messages} %>
