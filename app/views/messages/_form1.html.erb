@@ -3,7 +3,8 @@
     <%= simple_form_for [@conversation, @message] do |f| %>
     <%= f.input :subject %>
     <%= f.input :body %>
-    <%= f.button :submit %>
+    <%= f.input :photo, as: :attachinary %>
+    <%= f.button :submit, "Send" %>
     <% end %>
   </div>
 </div>

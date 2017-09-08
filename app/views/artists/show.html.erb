@@ -13,6 +13,8 @@
   <% if Conversation.between(@artist.id, current_user.id).present? %>
     <% @conversation =  Conversation.between(@artist.id, current_user.id).ids[0] %>
     <%= link_to "Message", conversation_messages_path(@conversation), class: "btn btn-primary" %>
+  <% else %>
+    <%= link_to "Message", conversations_path(artist_id: @artist.id, user_id: current_user.id), :method => :post %>
   <% end %>
   </div>
 </div>

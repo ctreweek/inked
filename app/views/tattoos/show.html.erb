@@ -29,7 +29,10 @@
         <% if @tattoo.comments %>
         <div id="comments">
         <% @tattoo.comments.each do |comment| %>
-          <ul style="list-style:none">
+          <ul style="list-style:none" class="list-inline">
+            <% if comment.user %>
+              <li class="comment-user"><b><%= comment.user.name %></b></li>
+            <% end %>
             <li><%=comment.comment %></li>
           </ul>
         <% end %>

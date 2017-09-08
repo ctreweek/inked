@@ -13,8 +13,20 @@
       <% end %>
       <li><%= message.body %></li>
   </ul>
+    <% if message.photo %>
+      <%= cl_image_tag message.photo.path, width: 200, height: 200, crop: :thumb %>
+    <% end %>
+
   <% end %>
   </div>
 </div>
 
-<%= render partial: "messages/form", locals: { messages: @messages} %>
+<% if @messages.count >= 1 %>
+  <%= render partial: "messages/form2", locals: { messages: @messages} %>
+<% else %>
+  <%= render partial: "messages/form1", locals: { messages: @messages} %>
+<% end %>
+
+
+
+

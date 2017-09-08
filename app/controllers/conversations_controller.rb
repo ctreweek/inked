@@ -16,7 +16,7 @@ class ConversationsController < ApplicationController
   private
 
   def conversation_params
-    params.require(:conversation).permit(:artist_id, :user_id)
+    params.permit(:artist_id, :user_id)
   end
 end
 

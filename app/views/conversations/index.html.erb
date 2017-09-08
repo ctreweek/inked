@@ -3,6 +3,6 @@
     <%= link_to conversation.artist.name, conversation_messages_path(conversation) %>
   <% end %>
   <% if current_artist && conversation.artist.id == current_artist.id %>
-    <%= link_to conversation.user.name, conversation_messages_path(conversation) %>
+      <%= link_to conversation.user.name, conversation_messages_path(conversation) %>
   <% end %>
 <% end %>

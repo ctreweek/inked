@@ -30,7 +30,7 @@ class MessagesController < ApplicationController
   private
 
   def message_params
-    params.require(:message).permit(:body, :artist_id, :user_id)
+    params.require(:message).permit(:body, :artist_id, :user_id, :photo, :subject)
   end
 
 end
